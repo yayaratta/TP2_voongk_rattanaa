@@ -100,6 +100,22 @@ public:
      * \return l'entier representant la taille du vecteur
      */
     int size();
+
+    /*!
+     * \brief Accesseur en lecture
+     *
+     * Methode qui permet d'accéder à une élément du vecteur
+     *
+     * \return le double correspondant à l'élément choisi
+     */
+    double get(int i);
+
+    /*!
+ * \brief Accesseur en écriture
+ *
+ * Methode qui permet d'écrire dans un champ du vecteur
+ */
+    void set(int i,double valeur);
 };
 
 

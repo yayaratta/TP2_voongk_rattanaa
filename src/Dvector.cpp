@@ -114,3 +114,21 @@ void Dvector::fillRandomly(){
 int Dvector::size(){
     return taille;
 }
+
+double Dvector::get(int i){
+    if ( i < 0 || i > taille - 1){
+        return 0;
+    }
+    else{
+        return pTab[i];
+    }
+}
+
+void Dvector::set(int i,double valeur){
+    if ( i >= 0 && i < taille ){
+        pTab[i] = valeur;
+    }
+    else{
+        cout << " La valeur i n'est pas valable" <<endl;
+    }
+}
