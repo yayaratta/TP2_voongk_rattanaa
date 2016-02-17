@@ -63,7 +63,7 @@ Dvector::Dvector(const Dvector & D) {
 }
 
 /* --- Constructor by parsing a file --- */
-Dvector::Dvector( std::string inputFile){
+Dvector::Dvector(const std::string inputFile){
     cout<<"On entre dans le constructeur de Dvector avec paramètre un fichier en lecture"<<endl;
     std::ifstream fichier;//(std::string, ios::in);//on ouvre le fichier en lecture
     fichier.open(inputFile.c_str(),ifstream::in);
