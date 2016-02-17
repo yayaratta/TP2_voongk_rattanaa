@@ -99,32 +99,69 @@ public:
      *
      * \return l'entier representant la taille du vecteur
      */
-    int size();
+    int size()const;
 
     /*!
      * \brief Accesseur en lecture
      *
      * Methode qui permet d'accéder à une élément du vecteur
      *
+     * \param i : position du double souhaité dans le vecteur
+     *
      * \return le double correspondant à l'élément choisi
      */
-    double get(int i);
+    const double & operator()(int i) const;
 
     /*!
-     * \brief Accesseur en écriture
-    *
-    * Methode qui permet d'écrire dans un champ du vecteur
-    */
-    void set(int i,double valeur);
+
+ * \brief Redifinition de l'opérateur +=
+ *
+ * Methode pour sommer deux vecteurs
+ *
+ * \param v : vecteur qu'on va ajouter
+ *
+ */
+    Dvector & operator+= (const Dvector & v);
 
     /*!
-     * \brief Opérateur +=
+* \brief Redifinition de l'opérateur -=
+*
+* Methode pour faire la différence entre deux vecteurs
+*
+* \param v : vecteur qu'on va soustraire
+*
+*/
+    Dvector & operator-= (const Dvector & v);
+
+
+    /*!
+     * \brief Opérateur unaire +=
     *
     * Methode qui permet d'additionner un vecteur et un réel
     */
     Dvector & operator += (double d);
 
+    /*!
+     * \brief Opérateur unaire -=
+    *
+    * Methode qui permet de soustraire un réel à un vecteur
+    */
+    Dvector & operator -= (double d);
 
+
+    /*!
+     * \brief Opérateur unaire *=
+    *
+    * Methode qui permet de multiplier un vecteur et un réel
+    */
+    Dvector & operator *= (double d);
+
+    /*!
+     * \brief Opérateur unaire /=
+    *
+    * Methode qui permet de diviser un vecteur par un réel
+    */
+    Dvector & operator /= (double d);
 
 };
 
@@ -132,7 +169,35 @@ public:
  * Surchargeurs externes
  */
 
+
+
+/*!
+ * \brief Opérateur binaire +
+ *
+ * Methode qui permet d'additionner un vecteur et un réel
+ */
 Dvector operator + (const Dvector &v, double d);
+
+/*!
+ * \brief Opérateur binaire -
+ *
+ * Methode qui permet de soustraire un réel à un vecteur
+ */
+Dvector operator - (const Dvector &v, double d);
+
+/*!
+ * \brief Opérateur unaire *=
+ *
+ * Methode qui permet de multiplier un vecteur et un réel
+ */
+Dvector operator * (const Dvector &v, double d);
+
+/*!
+ * \brief Opérateur unaire /=
+ *
+ * Methode qui permet de diviser un vecteur et un réel
+ */
+Dvector operator / (const Dvector &v, double d);
 
 
 #endif //TP1_DVECTOR_H

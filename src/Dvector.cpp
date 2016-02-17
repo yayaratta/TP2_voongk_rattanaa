@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <string>
+#include <cassert>
+
 using namespace std;
 
 
@@ -111,32 +113,56 @@ void Dvector::fillRandomly(){
     }
 }
 
-int Dvector::size(){
+int Dvector::size()const {
     return taille;
 }
 
-double Dvector::get(int i){
-    if ( i < 0 || i > taille - 1){
-        return 0;
-    }
-    else{
-        return pTab[i];
+
+const double &Dvector::operator()(int i) const{
+    assert(i >= 0 && i < taille);
+    return pTab[i];
+}
+
+Dvector &Dvector::operator+=(const Dvector &v) {
+    assert(taille == v.size());
+    for (int i = 0; i < taille; i++){
+        pTab[i] = pTab[i] + v(i);
     }
 }
 
-void Dvector::set(int i,double valeur){
-    if ( i >= 0 && i < taille ){
-        pTab[i] = valeur;
-    }
-    else{
-        cout << " La valeur i n'est pas valable" <<endl;
+
+Dvector &Dvector::operator-=(const Dvector &v) {
+    assert(taille == v.size());
+    for (int i = 0; i < taille; i++) {
+        pTab[i] = pTab[i] - v(i);
     }
 }
-
 
 Dvector & Dvector::operator += (const double d) {
     for (int i = 0 ; i < taille ; i++) {
         pTab[i] += d;
+    }
+    return *this;
+}
+
+Dvector & Dvector::operator -= (const double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] -= d;
+    }
+    return *this;
+}
+
+
+Dvector & Dvector::operator *= (double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] *= d;
+    }
+    return *this;}
+
+
+Dvector & Dvector::operator /= (double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] /= d;
     }
     return *this;
 }
@@ -148,7 +174,29 @@ Dvector operator + (const Dvector &v, double d) {
     R+=d;
 
     return R;
-
 }
 
+Dvector operator - (const Dvector &v, double d) {
+    Dvector R(v);
+
+    R-=d;
+
+    return R;
+}
+
+
+Dvector operator*(const Dvector &v, double d) {
+    Dvector R(v);
+
+    R*=d;
+
+    return R;
+}
+
+Dvector operator/(const Dvector &v, double d) {
+    Dvector R(v);
+
+    R/=d;
+
+    return R;
 }

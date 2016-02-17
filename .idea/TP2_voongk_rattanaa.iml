@@ -5,10 +5,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Dvector.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_constructeur_parametre.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_fillRandomly.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Dvector.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test_constructor_defaut.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test_operator_plus.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_lecture_fichier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Dvector.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_q1.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test_constructor_defaut.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/testConstructorCopy.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
