@@ -111,14 +111,28 @@ public:
     double get(int i);
 
     /*!
- * \brief Accesseur en écriture
- *
- * Methode qui permet d'écrire dans un champ du vecteur
- */
+     * \brief Accesseur en écriture
+    *
+    * Methode qui permet d'écrire dans un champ du vecteur
+    */
     void set(int i,double valeur);
+
+    /*!
+     * \brief Opérateur +=
+    *
+    * Methode qui permet d'additionner un vecteur et un réel
+    */
+    Dvector & operator += (double d);
+
 
 
 };
+
+/*
+ * Surchargeurs externes
+ */
+
+Dvector operator + (const Dvector &v, double d);
 
 
 #endif //TP1_DVECTOR_H

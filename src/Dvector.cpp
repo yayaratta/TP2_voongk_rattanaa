@@ -134,4 +134,21 @@ void Dvector::set(int i,double valeur){
 }
 
 
+Dvector & Dvector::operator += (const double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] += d;
+    }
+    return *this;
+}
+
+
+Dvector operator + (const Dvector &v, double d) {
+    Dvector R(v);
+
+    R+=d;
+
+    return R;
+
+}
+
 }
