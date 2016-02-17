@@ -116,6 +116,47 @@ public:
  * Methode qui permet d'écrire dans un champ du vecteur
  */
     void set(int i,double valeur);
+
+
+    /*!
+* \brief Multiplication par un réel
+*
+* Methode qui permet de multiplier tous les composants du vecteurs par un vecteur
+*/
+    void mult(double x);
+
+    /*!
+* \brief Division par un réel
+*
+* Methode qui permet de diviser tous les composants du vecteurs par un vecteur
+*/
+    void div(double x);
+
+    /*!
+* \brief Addition avec un réel
+*
+* Methode qui permet d'additioner un réel à toutes les composantes du vecteur
+*/
+    void add(double x);
+
+    /*!
+* \brief Différence avec un réel
+*
+* Methode qui permet de soustraire un réel à toutes les composantes du vecteur
+*/
+    void sub(double x);
+
+    /*!
+* \brief Addition avec un vecteur
+*
+* Methode qui permet d'additioner deux vecteurs*/
+    void add(Dvector v);
+
+    /*!
+* \brief Différence avec un vecteur
+*
+* Methode qui permet de soustraire deux vecteurs*/
+    void sub(Dvector v);
 };
 
 

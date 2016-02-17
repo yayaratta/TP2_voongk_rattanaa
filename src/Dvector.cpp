@@ -132,3 +132,63 @@ void Dvector::set(int i,double valeur){
         cout << " La valeur i n'est pas valable" <<endl;
     }
 }
+
+void Dvector::mult(double x) {
+   //On multiplie chaque composante du vecteur par la constante x
+    for ( int i = 0; i < taille; i++){
+        pTab[i] = pTab[i]*x;
+    }
+}
+
+void Dvector::div(double x) {
+   //PAs de division par 0
+    if ( x == 0 ){
+        cout << "Pas de division par 0";
+    }
+    else{
+        //On divise chaque composante du vecteur par la constante x
+        for ( int i = 0; i < taille; i++){
+            pTab[i] = pTab[i]/x;
+        }
+    }
+}
+
+void Dvector::add(double x) {
+   // A chaque composante du vecteur on va ajouter la valeur x
+    for ( int i = 0; i < taille; i++){
+        pTab[i] = pTab[i] + x;
+    }
+}
+
+void Dvector::sub(double x) {
+    // A chaque composante du vecteur on va soustraire la valeur x
+    for ( int i = 0; i < taille; i++){
+        pTab[i] = pTab[i] - x;
+    }
+}
+
+void Dvector::add(Dvector v) {
+    int tailleV = v.size();
+    //Si les deux vecteurs n'ont pas même taille on ne les additionne pas
+    if ( taille != tailleV ){
+        cout << "Vecteurs de tailles différentes";
+    }
+    else{
+        for ( int i = 0 ; i < tailleV; i++){
+            pTab[i] = pTab[i] + v.get(i);
+        }
+    }
+}
+
+void Dvector::sub(Dvector v) {
+    int tailleV = v.size();
+    //Si les deux vecteurs n'ont pas même taille on ne les soustraie pas
+    if ( taille != tailleV ){
+        cout << "Vecteurs de tailles différentes";
+    }
+    else{
+        for ( int i = 0 ; i < tailleV; i++){
+            pTab[i] = pTab[i] - v.get(i);
+        }
+    }
+}
