@@ -65,7 +65,7 @@ Dvector::Dvector(const Dvector & D) {
 }
 
 /* --- Constructor by parsing a file --- */
-Dvector::Dvector( std::string inputFile){
+Dvector::Dvector(const std::string inputFile){
     cout<<"On entre dans le constructeur de Dvector avec paramètre un fichier en lecture"<<endl;
     std::ifstream fichier;//(std::string, ios::in);//on ouvre le fichier en lecture
     fichier.open(inputFile.c_str(),ifstream::in);
@@ -130,9 +130,29 @@ Dvector &Dvector::operator+=(const Dvector &v) {
     }
 }
 
+
 Dvector &Dvector::operator-=(const Dvector &v) {
     assert(taille == v.size());
-    for ( int i = 0; i < taille; i++){
+    for (int i = 0; i < taille; i++) {
         pTab[i] = pTab[i] - v(i);
     }
 }
+
+Dvector & Dvector::operator += (const double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] += d;
+    }
+    return *this;
+}
+
+
+Dvector operator + (const Dvector &v, double d) {
+    Dvector R(v);
+
+    R+=d;
+
+    return R;
+
+}
+
+

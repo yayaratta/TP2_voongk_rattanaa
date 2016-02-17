@@ -113,6 +113,7 @@ public:
     const double & operator()(int i) const;
 
     /*!
+
  * \brief Redifinition de l'opérateur +=
  *
  * Methode pour sommer deux vecteurs
@@ -132,7 +133,23 @@ public:
 */
     Dvector & operator-= (const Dvector & v);
 
+
+    /*!
+     * \brief Opérateur +=
+    *
+    * Methode qui permet d'additionner un vecteur et un réel
+    */
+    Dvector & operator += (double d);
+
+
+
 };
+
+/*
+ * Surchargeurs externes
+ */
+
+Dvector operator + (const Dvector &v, double d);
 
 
 
