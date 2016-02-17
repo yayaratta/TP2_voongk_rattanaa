@@ -149,6 +149,28 @@ Dvector & Dvector::operator += (const double d) {
     return *this;
 }
 
+Dvector & Dvector::operator -= (const double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] -= d;
+    }
+    return *this;
+}
+
+
+Dvector & Dvector::operator *= (double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] *= d;
+    }
+    return *this;}
+
+
+Dvector & Dvector::operator /= (double d) {
+    for (int i = 0 ; i < taille ; i++) {
+        pTab[i] /= d;
+    }
+    return *this;
+}
+
 
 Dvector operator + (const Dvector &v, double d) {
     Dvector R(v);
@@ -156,8 +178,16 @@ Dvector operator + (const Dvector &v, double d) {
     R+=d;
 
     return R;
-
 }
+
+Dvector operator - (const Dvector &v, double d) {
+    Dvector R(v);
+
+    R-=d;
+
+    return R;
+}
+
 
 
 Dvector operator+(const Dvector &v, const Dvector &s) {
@@ -170,4 +200,21 @@ Dvector operator-(const Dvector &v, const Dvector &s) {
     Dvector retour = Dvector(s);
     retour -= s;
     return s;
+}
+
+Dvector operator*(const Dvector &v, double d) {
+    Dvector R(v);
+
+    R*=d;
+
+    return R;
+}
+
+Dvector operator/(const Dvector &v, double d) {
+    Dvector R(v);
+
+    R/=d;
+
+    return R;
+
 }

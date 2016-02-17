@@ -160,13 +160,34 @@ public:
     */
     Dvector & operator += (double d);
 
+    /*!
+     * \brief Opérateur unaire -=
+    *
+    * Methode qui permet de soustraire un réel à un vecteur
+    */
+    Dvector & operator -= (double d);
 
+
+    /*!
+     * \brief Opérateur unaire *=
+    *
+    * Methode qui permet de multiplier un vecteur et un réel
+    */
+    Dvector & operator *= (double d);
+
+    /*!
+     * \brief Opérateur unaire /=
+    *
+    * Methode qui permet de diviser un vecteur par un réel
+    */
+    Dvector & operator /= (double d);
 
 };
 
 /*
  * Surchargeurs externes
  */
+
 
 /*!
 * \brief Redifinition de l'opérateur +
@@ -190,9 +211,34 @@ Dvector operator + (const Dvector &v, const Dvector &s);
 */
 Dvector operator - (const Dvector &v, const Dvector &s);
 
+/*!
+ * \brief Opérateur binaire +
+ *
+ * Methode qui permet d'additionner un vecteur et un réel
+ */
+
 Dvector operator + (const Dvector &v, double d);
 
+/*!
+ * \brief Opérateur binaire -
+ *
+ * Methode qui permet de soustraire un réel à un vecteur
+ */
+Dvector operator - (const Dvector &v, double d);
 
+/*!
+ * \brief Opérateur unaire *=
+ *
+ * Methode qui permet de multiplier un vecteur et un réel
+ */
+Dvector operator * (const Dvector &v, double d);
+
+/*!
+ * \brief Opérateur unaire /=
+ *
+ * Methode qui permet de diviser un vecteur et un réel
+ */
+Dvector operator / (const Dvector &v, double d);
 
 
 

@@ -1,4 +1,4 @@
-TESTS = test_constructeur_parametre.t testConstructorCopy.t test_constructor_defaut.t test_fillRandomly.t test_lecture_fichier.t test_q1.t
+TESTS = test_constructeur_parametre.t testConstructorCopy.t test_constructor_defaut.t test_fillRandomly.t test_lecture_fichier.t test_q1.t test_operator_plus.t
 OBJS = Dvector.o
 CXX = g++
 CXXFLAGS = -Wall -Wextra -g
