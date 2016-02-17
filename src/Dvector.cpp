@@ -117,6 +117,10 @@ int Dvector::size()const {
     return taille;
 }
 
+double & Dvector::operator()(int i){
+    assert(i >= 0 && i < taille);
+    return pTab[i];
+}
 
 const double &Dvector::operator()(int i) const{
     assert(i >= 0 && i < taille);
@@ -156,3 +160,14 @@ Dvector operator + (const Dvector &v, double d) {
 }
 
 
+Dvector operator+(const Dvector &v, const Dvector &s) {
+    Dvector retour = Dvector(v);
+    retour += s;
+    return retour;
+}
+
+Dvector operator-(const Dvector &v, const Dvector &s) {
+    Dvector retour = Dvector(s);
+    retour -= s;
+    return s;
+}

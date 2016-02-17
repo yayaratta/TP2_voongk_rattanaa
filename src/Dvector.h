@@ -113,6 +113,17 @@ public:
     const double & operator()(int i) const;
 
     /*!
+ * \brief Accesseur en lecture sans const
+ *
+ * Methode qui permet d'accéder à une élément du vecteur
+ *
+ * \param i : position du double souhaité dans le vecteur
+ *
+ * \return le double correspondant à l'élément choisi
+ */
+    double & operator()(int i);
+
+    /*!
 
  * \brief Redifinition de l'opérateur +=
  *
@@ -135,6 +146,14 @@ public:
 
 
     /*!
+* \brief Redifinition de l'opérateur unaire -
+*
+* Methode qui renvoie le vecteur opposé
+*
+*/
+
+
+    /*!
      * \brief Opérateur +=
     *
     * Methode qui permet d'additionner un vecteur et un réel
@@ -149,7 +168,30 @@ public:
  * Surchargeurs externes
  */
 
+/*!
+* \brief Redifinition de l'opérateur +
+*
+* Redifinition de l'opérateur +
+*
+* \param v : vecteur
+* \param s :vecteur
+*
+*/
+Dvector operator + (const Dvector &v, const Dvector &s);
+
+/*!
+* \brief Redifinition de l'opérateur-
+*
+* Redifinition de l'opérateur -
+*
+* \param v : vecteur source
+* \param s :vecteur que l'on soustraie
+*
+*/
+Dvector operator - (const Dvector &v, const Dvector &s);
+
 Dvector operator + (const Dvector &v, double d);
+
 
 
 
