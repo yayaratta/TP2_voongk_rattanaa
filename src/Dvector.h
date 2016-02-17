@@ -99,26 +99,42 @@ public:
      *
      * \return l'entier representant la taille du vecteur
      */
-    int size();
+    int size()const;
 
     /*!
      * \brief Accesseur en lecture
      *
      * Methode qui permet d'accéder à une élément du vecteur
      *
+     * \param i : position du double souhaité dans le vecteur
+     *
      * \return le double correspondant à l'élément choisi
      */
-    double get(int i);
+    const double & operator()(int i) const;
 
     /*!
- * \brief Accesseur en écriture
+ * \brief Redifinition de l'opérateur +=
  *
- * Methode qui permet d'écrire dans un champ du vecteur
+ * Methode pour sommer deux vecteurs
+ *
+ * \param v : vecteur qu'on va ajouter
+ *
  */
-    void set(int i,double valeur);
+    Dvector & operator+= (const Dvector & v);
 
+    /*!
+* \brief Redifinition de l'opérateur -=
+*
+* Methode pour faire la différence entre deux vecteurs
+*
+* \param v : vecteur qu'on va soustraire
+*
+*/
+    Dvector & operator-= (const Dvector & v);
 
 };
+
+
 
 
 #endif //TP1_DVECTOR_H
