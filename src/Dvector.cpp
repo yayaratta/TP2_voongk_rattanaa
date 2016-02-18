@@ -127,6 +127,13 @@ const double &Dvector::operator()(int i) const{
     return pTab[i];
 }
 
+Dvector &Dvector::operator-() {
+    for (int i = 0; i < taille; i++){
+        pTab[i] = -pTab[i];
+    }
+}
+
+
 Dvector &Dvector::operator+=(const Dvector &v) {
     assert(taille == v.size());
     for (int i = 0; i < taille; i++){
@@ -233,4 +240,14 @@ std::istream & operator >> (istream &in, const Dvector &v) {
     for(int i=0 ; i < taille ; i++) {
         //in>>v.pTab[i];
     }
+bool Dvector::operator==(const Dvector &vect) {
+    if (taille != vect.size()){
+        return false;
+    }
+    for ( int i = 0; i < taille ; i++){
+        if ( pTab[i] != vect(i)){
+            return false;
+        }
+    }
+    return true;
 }

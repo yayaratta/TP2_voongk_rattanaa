@@ -124,7 +124,14 @@ public:
     double & operator()(int i);
 
     /*!
+* \brief Redifinition de l'opérateur unaire -
+*
+* Methode pour renvoyer l'opposé du vecteur
+*
+*/
+    Dvector & operator-();
 
+    /*!
  * \brief Redifinition de l'opérateur +=
  *
  * Methode pour sommer deux vecteurs
@@ -182,8 +189,16 @@ public:
     */
     Dvector & operator /= (double d);
 
-
-
+    /*!
+     * \brief Redefinition de l'opérateur
+     *
+     * Methode qui vérifie si deux vecteurs sont égaux
+     *
+     * \param vect : vecteur à vérifier
+     *
+     * \return true si les deux vecteurs sont égaux, false sinon
+     */
+    bool operator== (const Dvector & vect);
 
 };
 
@@ -256,7 +271,7 @@ ostream & operator <<(ostream &Out,const Dvector &v);
     *
     * Méthode qui permet d'entrée à l'écran un vecteur
     */
-istream & operator >>(istream &in, const Dvector &P)
+istream & operator >>(istream &in, const Dvector &P);
 
 
 #endif //TP1_DVECTOR_H
