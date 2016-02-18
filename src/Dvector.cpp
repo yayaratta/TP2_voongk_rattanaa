@@ -171,7 +171,6 @@ Dvector & Dvector::operator /= (double d) {
     return *this;
 }
 
-
 Dvector operator + (const Dvector &v, double d) {
     Dvector R(v);
 
@@ -199,7 +198,7 @@ Dvector operator+(const Dvector &v, const Dvector &s) {
 Dvector operator-(const Dvector &v, const Dvector &s) {
     Dvector retour = Dvector(s);
     retour -= s;
-    return s;
+    return retour;
 }
 
 Dvector operator*(const Dvector &v, double d) {
@@ -217,4 +216,21 @@ Dvector operator/(const Dvector &v, double d) {
 
     return R;
 
+}
+
+
+std::ostream & operator << (ostream &out, const Dvector &v) {
+    out<<"Affichage du vecteur"<<endl;
+    for (int i = 0 ; i < taille ; i++){
+        out<<v.pTab[i]<<endl;
+    }
+    out<<endl;
+    return out;
+}
+
+
+std::istream & operator >> (istream &in, const Dvector &v) {
+    for(int i=0 ; i < taille ; i++) {
+        //in>>v.pTab[i];
+    }
 }

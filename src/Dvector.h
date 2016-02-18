@@ -182,6 +182,9 @@ public:
     */
     Dvector & operator /= (double d);
 
+
+
+
 };
 
 /*
@@ -240,6 +243,20 @@ Dvector operator * (const Dvector &v, double d);
  */
 Dvector operator / (const Dvector &v, double d);
 
+
+/*!
+    * \brief Opérateur de sortie dans un flux
+    *
+    * Méthode qui permet de générer une sortie à l'écran d'un vecteur
+    */
+ostream & operator <<(ostream &Out,const Dvector &v);
+
+/*!
+    * \brief Opérateur d'entrée dans un flux
+    *
+    * Méthode qui permet d'entrée à l'écran un vecteur
+    */
+istream & operator >>(istream &in, const Dvector &P)
 
 
 #endif //TP1_DVECTOR_H
