@@ -165,14 +165,14 @@ public:
     *
     * Methode qui permet d'additionner un vecteur et un réel
     */
-    Dvector & operator += (double d);
+    Dvector & operator += (const double d);
 
     /*!
      * \brief Opérateur unaire -=
     *
     * Methode qui permet de soustraire un réel à un vecteur
     */
-    Dvector & operator -= (double d);
+    Dvector & operator -= (const double d);
 
 
     /*!
@@ -180,14 +180,14 @@ public:
     *
     * Methode qui permet de multiplier un vecteur et un réel
     */
-    Dvector & operator *= (double d);
+    Dvector & operator *= (const double d);
 
     /*!
      * \brief Opérateur unaire /=
     *
     * Methode qui permet de diviser un vecteur par un réel
     */
-    Dvector & operator /= (double d);
+    Dvector & operator /= ( const double d);
 
     /*!
      * \brief Redefinition de l'opérateur
@@ -200,6 +200,24 @@ public:
      */
     bool operator== (const Dvector & vect);
 
+
+    /*!
+    * \brief Opérateur d'égalité
+    *
+    * Méthode qui permet d'égaliser deux vecteurs avec memcpy
+    */
+    Dvector & operator= (const Dvector & vect);
+
+    /*!
+     * \brief Changement de la dimension du vecteur
+     *
+     * Methode qui change la taille du vecteur
+     *
+     * \param t : nouvelle taille
+     * *
+     * \param val : valeur d'initialisation des nouveaux éléments si la taille est augmentée
+     */
+    void resize(int t, double val = 0);
 };
 
 /*
@@ -235,28 +253,43 @@ Dvector operator - (const Dvector &v, const Dvector &s);
  * Methode qui permet d'additionner un vecteur et un réel
  */
 
-Dvector operator + (const Dvector &v, double d);
+Dvector operator + (const Dvector &v, const double d);
 
 /*!
  * \brief Opérateur binaire -
  *
  * Methode qui permet de soustraire un réel à un vecteur
  */
-Dvector operator - (const Dvector &v, double d);
+Dvector operator - ( const Dvector &v, const double d);
 
 /*!
- * \brief Opérateur unaire *=
+ * \brief Opérateur binaire +
+ *
+ * Methode qui permet d'additionner un vecteur et un réel
+ */
+
+Dvector operator + ( const double d, const Dvector &v);
+
+/*!
+ * \brief Opérateur binaire *
  *
  * Methode qui permet de multiplier un vecteur et un réel
  */
-Dvector operator * (const Dvector &v, double d);
+Dvector operator * (  const double d, const Dvector &v);
 
 /*!
- * \brief Opérateur unaire /=
+ * \brief Opérateur binaire *
+ *
+ * Methode qui permet de multiplier un vecteur et un réel
+ */
+Dvector operator * ( const Dvector &v,const double d);
+
+/*!
+ * \brief Opérateur binaire /
  *
  * Methode qui permet de diviser un vecteur et un réel
  */
-Dvector operator / (const Dvector &v, double d);
+Dvector operator / ( const Dvector &v,const  double d);
 
 
 /*!
@@ -264,14 +297,15 @@ Dvector operator / (const Dvector &v, double d);
     *
     * Méthode qui permet de générer une sortie à l'écran d'un vecteur
     */
-ostream & operator <<(ostream &Out,const Dvector &v);
+std::ostream & operator <<(std::ostream &Out,const Dvector &v);
 
 /*!
     * \brief Opérateur d'entrée dans un flux
     *
     * Méthode qui permet d'entrée à l'écran un vecteur
     */
-istream & operator >>(istream &in, const Dvector &P);
+std::istream & operator >>(std::istream &in, Dvector &P);
+
 
 
 #endif //TP1_DVECTOR_H

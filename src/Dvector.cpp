@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <cassert>
+#include <string.h>
 
 using namespace std;
 
@@ -128,6 +129,7 @@ const double &Dvector::operator()(int i) const{
 }
 
 Dvector &Dvector::operator-() {
+
     for (int i = 0; i < taille; i++){
         pTab[i] = -pTab[i];
     }
@@ -164,33 +166,30 @@ Dvector & Dvector::operator -= (const double d) {
 }
 
 
-Dvector & Dvector::operator *= (double d) {
-    for (int i = 0 ; i < taille ; i++) {
-        pTab[i] *= d;
+Dvector & Dvector::operator *= (const double d) {
+    Dvector & v = *this;
+    for (int i = 0; i < taille ; i++) {
+        v(i) *= d;
     }
-    return *this;}
+    return v ;}
 
 
-Dvector & Dvector::operator /= (double d) {
+Dvector & Dvector::operator /= ( const double d) {
     for (int i = 0 ; i < taille ; i++) {
         pTab[i] /= d;
     }
     return *this;
 }
 
-Dvector operator + (const Dvector &v, double d) {
-    Dvector R(v);
-
+Dvector operator + (const Dvector &v, const double d) {
+    Dvector R = Dvector(v);
     R+=d;
-
     return R;
 }
 
-Dvector operator - (const Dvector &v, double d) {
-    Dvector R(v);
-
+Dvector operator - ( const Dvector &v, const double d) {
+    Dvector R = Dvector(v);
     R-=d;
-
     return R;
 }
 
@@ -203,24 +202,20 @@ Dvector operator+(const Dvector &v, const Dvector &s) {
 }
 
 Dvector operator-(const Dvector &v, const Dvector &s) {
-    Dvector retour = Dvector(s);
+    Dvector retour = Dvector(v);
     retour -= s;
     return retour;
 }
 
-Dvector operator*(const Dvector &v, double d) {
-    Dvector R(v);
-
+Dvector operator*( const Dvector &v, const double d) {
+    Dvector R = Dvector(v);
     R*=d;
-
     return R;
 }
 
-Dvector operator/(const Dvector &v, double d) {
-    Dvector R(v);
-
+Dvector operator/(const Dvector &v,const double d) {
+    Dvector R = Dvector(v);
     R/=d;
-
     return R;
 
 }
@@ -228,26 +223,74 @@ Dvector operator/(const Dvector &v, double d) {
 
 std::ostream & operator << (ostream &out, const Dvector &v) {
     out<<"Affichage du vecteur"<<endl;
-    for (int i = 0 ; i < taille ; i++){
-        out<<v.pTab[i]<<endl;
+    for (int i = 0 ; i < v.size() ; i++){
+        out<<v(i)<<endl;
     }
     out<<endl;
     return out;
 }
 
 
-std::istream & operator >> (istream &in, const Dvector &v) {
-    for(int i=0 ; i < taille ; i++) {
-        //in>>v.pTab[i];
+std::istream & operator >> (istream &in, Dvector &v) {
+    for (int i = 0; i < v.size(); i++) {
+        in>>v(i);
     }
+    return in;
+}
+
 bool Dvector::operator==(const Dvector &vect) {
-    if (taille != vect.size()){
+    if (taille != vect.size()) {
         return false;
     }
-    for ( int i = 0; i < taille ; i++){
-        if ( pTab[i] != vect(i)){
+    for (int i = 0; i < taille; i++) {
+        if (pTab[i] != vect(i)) {
             return false;
         }
     }
     return true;
+}
+
+Dvector & Dvector::operator= (const Dvector & v){
+    //méthode 1
+    assert(taille == v.size());
+    memcpy(pTab,v.pTab,taille* sizeof(double));
+    /**Méthode 2
+     assert(taille == v.size());
+     for ( int i = 0 ; i < taille; i++){
+        pTab[i] = v(i);
+     }
+     */
+}
+
+void Dvector::resize(int t, double val) {
+    taille = t;
+    double *newTab = new double[t];
+    if (taille >= t){
+        for ( int i = 0 ; i < t ; i++){
+            newTab[i] = pTab[i];
+        }
+    }
+    else{
+        for ( int i = 0 ; i < taille ; i++){
+            newTab[i] = pTab[i];
+        }
+        for ( int i = taille ; i < t ; i ++){
+            newTab[i] = val;
+        }
+    }
+    pTab = new double[t];
+    pTab = newTab;
+}
+
+
+Dvector operator+(const double d, const Dvector &v) {
+    Dvector R = Dvector(v);
+    R+=d;
+    return R;
+}
+
+Dvector operator*(const double d,const Dvector &v) {
+    Dvector R = Dvector(v);
+    R*=d;
+    return R;
 }

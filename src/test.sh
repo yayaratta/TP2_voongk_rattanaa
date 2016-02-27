@@ -26,7 +26,28 @@ echo "===== Lecture et affichage du test 1 donné par les professeurs ====="
 echo "===== Fin du test lecture et affichage du test 1 donné par les professeurs ====="
 
 
+#echo ""
+#echo "===== Lecture et affichage du test 2 donné par les professeurs ====="
+#./test_lecture_fichier.t test2.txt
+#echo "===== Fin du test lecture et affichage du test 2 donné par les professeurs ====="
+
 echo ""
-echo "===== Lecture et affichage du test 2 donné par les professeurs ====="
-./test_lecture_fichier.t test2.txt
-echo "===== Fin du test lecture et affichage du test 2 donné par les professeurs ====="
+echo "===========Accesseur==========="
+./test_accesseur.t
+echo "======Fin du test sur les accesseurs====="
+
+echo ""
+echo "===========Operations sur les reels==========="
+./test_op_reels.t
+echo "======Fin du test sur les operations avec les reels====="
+
+echo ""
+echo "===========Operations sur les vecteurs==========="
+./test_op_vect.t
+echo "======Fin du test sur les operations sur les vecteurs====="
+
+
+echo ""
+echo "===========Affectation==========="
+./test_affectation.t
+echo "======Fin du test sur les affectations====="
