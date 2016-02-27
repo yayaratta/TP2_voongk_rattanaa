@@ -51,3 +51,19 @@ echo ""
 echo "===========Affectation==========="
 ./test_affectation.t
 echo "======Fin du test sur les affectations====="
+
+
+echo ""
+echo "===========Egalite==========="
+./test_egalite.t
+echo "======Fin du test sur les Egalites====="
+
+echo ""
+echo "===========Flux d'entree sortie==========="
+./test_input_output.t
+echo "======Fin du test sur les flux d'entree sortie====="
+
+echo ""
+echo "===========Resize==========="
+./test_resize.t
+echo "======Fin du test sur resize====="

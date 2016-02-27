@@ -263,23 +263,32 @@ Dvector & Dvector::operator= (const Dvector & v){
 }
 
 void Dvector::resize(int t, double val) {
-    taille = t;
-    double *newTab = new double[t];
+    // cas où on diminue la taille
     if (taille >= t){
+        taille = t;
+        double *newTab = new double[t];
         for ( int i = 0 ; i < t ; i++){
             newTab[i] = pTab[i];
         }
+        pTab = new double[t];
+        pTab = newTab;
     }
+        //Cas où on augmente la taille
     else{
+
+        double *newTab = new double[t];
         for ( int i = 0 ; i < taille ; i++){
             newTab[i] = pTab[i];
         }
-        for ( int i = taille ; i < t ; i ++){
-            newTab[i] = val;
+
+        for ( int k = taille  ; k < t ; k ++){
+            newTab[k] = val;
         }
+        taille = t;
+        pTab = new double[t];
+        pTab = newTab;
     }
-    pTab = new double[t];
-    pTab = newTab;
+
 }
 
 
